@@ -813,29 +813,28 @@ function renderConfig(){
         <div class="row" style="margin-top:10px">
           <button class="btn primary" id="save">Salvar</button>
           <button class="btn" id="auto">Auto recalcular</button>
-  // Audio
-  if(0 0"#sfx")) 0 0"#sfx").value = S.config.sfx?"1":"0";
-  if(0 0"#ambient")) 0 0"#ambient").value = S.config.ambient?"1":"0";
-  if(0 0"#soundVol")) 0 0"#soundVol").value = (S.config.soundVol ?? 0.55);
-  if(0 0"#testSound")) 0 0"#testSound").onclick=()=>{audioPing(880,0.08,0.08,"square"); setTimeout(()=>audioPing(660,0.06,0.06,"triangle"),70);};
-  if(0 0"#replayBoot")) 0 0"#replayBoot").onclick=()=>{S.config.bootSeen=false; save(); closeModal(); setTimeout(()=>setupBoot(),60);};
-
           <button class="btn danger" id="reset">Reset total</button>
         </div>
       </div>
     </div>`;
   $("#strict").value=S.config.strict?"1":"0";
   $("#crt").value=S.config.crt?"1":"0";
+  $("#sfx").value=S.config.sfx?"1":"0";
+  $("#ambient").value=S.config.ambient?"1":"0";
+  $("#soundVol").value=String(S.config.soundVol ?? 0.55);
   $("#minP").value=String(S.config.pillarsMin);
   $("#intB").value=String(S.config.intBreak);
   $("#cut").value=S.config.cutting.strategy;
 
+  $("#testSound").onclick=()=>{audioPing(880,0.08,0.08,"square"); setTimeout(()=>audioPing(660,0.06,0.06,"triangle"),70);};
+  $("#replayBoot").onclick=()=>{S.config.bootSeen=false; save(); closeModal(); setTimeout(()=>setupBoot(),60);};
+
   $("#save").onclick=()=>{
     S.config.strict=$("#strict").value==="1";
-    S.config.crt=0 0"#crt").value==="1";
-    S.config.sfx=0 0"#sfx").value==="1";
-    S.config.ambient=0 0"#ambient").value==="1";
-    S.config.soundVol=parseFloat(0 0"#soundVol").value||"0.55");
+    S.config.crt=$("#crt").value==="1";
+    S.config.sfx=$("#sfx").value==="1";
+    S.config.ambient=$("#ambient").value==="1";
+    S.config.soundVol=parseFloat($("#soundVol").value)||0.55;
     if(S.config.ambient){ ambientStart(); } else { ambientStop(); }
     S.config.pillarsMin=parseInt($("#minP").value,10);
     S.config.intBreak=parseInt($("#intB").value,10);
