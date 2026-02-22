@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f16" />
+  <title>ASCENSÃO OS</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- BOOT / IMERSÃO (estilo terminal) -->
+  <div id="boot" class="boot">
+    <div class="bootInner">
+      <div class="bootOrb" aria-hidden="true"></div>
+      <div class="bootTitle">INICIAR SISTEMA</div>
+      <div class="bootHint">Toque para conectar • Aumente o volume</div>
+      <button id="bootStart" class="bootBtn">PRESSIONE START</button>
+
+      <div id="bootLog" class="bootLog hidden"></div>
+      <div id="bootBar" class="bootBar hidden">
+        <div id="bootBarFill" class="bootBarFill"></div>
+        <div id="bootPct" class="bootPct">0%</div>
+      </div>
+
+      <div class="bootFine">Modo offline • Seus dados ficam no aparelho</div>
+    </div>
+  </div>
+
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">A</div>
+        <div class="brandText">
+          <div class="title">ASCENSÃO OS</div>
+          <div class="subtitle" id="subStatus">Campanha 90D</div>
+        </div>
+      </div>
+      <div class="hudMini" id="hudMini"></div>
+    </header>
+
+    <main id="main">
+      <section id="screen-hud" class="screen"></section>
+      <section id="screen-proto" class="screen"></section>
+      <section id="screen-diet" class="screen"></section>
+      <section id="screen-train" class="screen"></section>
+      <section id="screen-study" class="screen"></section>
+      <section id="screen-spirit" class="screen"></section>
+      <section id="screen-social" class="screen"></section>
+      <section id="screen-ops" class="screen"></section>
+      <section id="screen-reports" class="screen"></section>
+      <section id="screen-config" class="screen"></section>
+    </main>
+
+    <nav class="tabbar" id="tabbar"></nav>
+  </div>
+
+  <div class="modal hidden" id="modal">
+    <div class="modalCard">
+      <div class="modalHead">
+        <div class="modalTitle" id="modalTitle">Título</div>
+        <button class="iconBtn" id="modalClose" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
+      <div class="modalFoot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <audio id="sfxLevel" preload="auto"></audio>
+  <audio id="sfxOk" preload="auto"></audio>
+  <audio id="sfxBad" preload="auto"></audio>
+  <audio id="bgm" preload="auto" loop></audio>
+
+  <script src="./app.js"></script>
+</body>
+</html>
